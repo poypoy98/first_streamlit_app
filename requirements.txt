@@ -1,5 +1,8 @@
 # requirements.txt
-snowflake-connector-python
+snowflake-connector-python[pandas]
+
 cffi==1.15.0
-pyarrow<10.1.0,>=10.0.1
+
+pyarrow<8.1.0,>=8.0.0
+
 streamlit >= 1.9.2
