@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import requests
+import snowflake.connector
+from urllib.error import URLError
 
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index("Fruit")
@@ -25,7 +28,6 @@ st.dataframe(my_fruit_list)
 # New Section to display FruityVice API response
 st.header("Fruityvice Fruit Advice!")
 
-import requests
 fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
 st.write('The user entered ', fruit_choice)
 
@@ -36,7 +38,9 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do? displays changed format
 st.dataframe(fruityvice_normalized)
 
-import snowflake.connector
+# don't run anything past this point while we troubleshoot
+st.stop()
+
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * FROM fruit_load_list")
