@@ -33,7 +33,7 @@ def get_fruityvice_data (thisfruitchoice):
       fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
       st.dataframe(fruityvice_normalized)
       st.write('The user entered ', thisfruitchoice)
-   return fruityvice_normalized
+ return fruityvice_normalized
 
 st.header("Fruityvice Fruit Advice!")
 
