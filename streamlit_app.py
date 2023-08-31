@@ -63,7 +63,7 @@ if st.button ('Get Fruit List'):
    st.dataframe(my_data_rows)
    
 # don't run anything past this point while we troubleshoot
-st.stop()
+# st.stop()
 
 # Allow end user to add a fruit to the list
 def insert_row_snowflake (new_fruit):
