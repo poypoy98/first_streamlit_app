@@ -31,8 +31,8 @@ st.dataframe(my_fruit_list)
 def get_fruityvice_data (thisfruitchoice):
       fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + thisfruitchoice)
       fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-      st.dataframe(fruityvice_normalized)
-      st.write('The user entered ', thisfruitchoice)
+      # st.dataframe(fruityvice_normalized)
+      # st.write('The user entered ', thisfruitchoice)
       return fruityvice_normalized
 
 st.header("Fruityvice Fruit Advice!")
